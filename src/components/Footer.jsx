@@ -57,7 +57,7 @@ const Footer = () => {
         <p>© {new Date().getFullYear()} Digital. All rights reserved.</p>
         <ul className="flex gap-4 mt-3 md:mt-0">
             {/* <Link className="hover:text-gray-900 transition mb-2 md:mb-0" to="/">Home</Link> */}
-          <li><a href="https://www.google.com">Beta user</a></li>
+          <li><a href="https://digiidbeta.vercel.app/">Beta user</a></li>
           <li><a href="coming.soon">Devlopers</a></li>
           <li><a href="coming.soon">Affiliate</a></li>
         </ul>
