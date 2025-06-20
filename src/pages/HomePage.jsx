@@ -32,6 +32,9 @@ const HomePage = () => {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center md:justify-start">
            <Link to="/Support" className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition">
                 Get Started
+            </Link>
+            <Link to="/Catalogue" className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition">
+                View Catalogue
             </Link> 
           <Link to="/features" className="text-sm flex items-center gap-1 hover:underline">
             <span>Learn more</span>

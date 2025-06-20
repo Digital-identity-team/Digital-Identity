@@ -1,18 +1,18 @@
+// src/layout/Layout.jsx
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Features from "../pages/Features";
 
 const Layout = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="min-h-screen pt-20">
+      <div className="grow">
         <Outlet />
-      </main>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
