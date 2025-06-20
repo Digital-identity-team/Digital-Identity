@@ -1,25 +1,52 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const Support = () => {
   const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Add current time to hidden field
+    const email = form.current.user_email.value.trim();
+    const mobile = form.current.user_mobile.value.trim();
+
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    const mobileRegex = /^[6-9]\d{9}$/;
+
+    if (!emailRegex.test(email)) {
+      setErrorMsg("❌ Please enter a valid email address.");
+      return;
+    }
+
+    if (!mobileRegex.test(mobile)) {
+      setErrorMsg("❌ Please enter a valid 10-digit Indian mobile number.");
+      return;
+    }
+
+    setErrorMsg("");
+    setIsLoading(true);
+
     form.current.time.value = new Date().toLocaleString();
 
     emailjs
-      .sendForm("service_aztije9", "template_b9m45un", form.current, "gAdau_gAMszN0t71t")
+      .sendForm(
+        "service_aztije9", // Your service ID
+        "template_b9m45un", // Your template ID
+        form.current,
+        "gAdau_gAMszN0t71t" // Your public key
+      )
       .then(
         () => {
-          alert("Message Sent Successfully!");
+          alert("✅ Message Sent Successfully!");
           form.current.reset();
+          setIsLoading(false);
         },
         (error) => {
           console.error("EmailJS Error:", error.text);
-          alert("Something went wrong. Please try again.");
+          alert("❌ Something went wrong. Please try again.");
+          setIsLoading(false);
         }
       );
   };
@@ -37,10 +64,19 @@ const Support = () => {
         <h1 className="text-4xl font-bold py-4 text-center">Let’s Get In Touch.</h1>
         <p className="text-gray-500 pb-10 text-center">
           Or reach us at{" "}
-          <a href="mailto:team.digitalidentity@gmail.com" className="text-indigo-600 hover:underline">
+          <a
+            href="mailto:team.digitalidentity@gmail.com"
+            className="text-indigo-600 hover:underline"
+          >
             team.digitalidentity@gmail.com
           </a>
         </p>
+
+        {errorMsg && (
+          <div className="text-red-500 text-sm mb-4 text-center w-full">
+            {errorMsg}
+          </div>
+        )}
 
         <div className="w-full">
           {/* Full Name */}
@@ -73,11 +109,12 @@ const Support = () => {
             <input
               type="tel"
               name="user_mobile"
-              pattern="[6-9]{1}[0-9]{9}"
-              title="Enter a valid 10-digit Indian mobile number"
               className="h-full px-2 w-full outline-none bg-transparent"
               placeholder="Enter your mobile number"
               required
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/\D/g, ""); // only digits
+              }}
             />
           </div>
 
@@ -97,9 +134,14 @@ const Support = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="flex items-center justify-center gap-1 mt-5 bg-indigo-500 hover:bg-indigo-600 text-white py-2.5 w-full rounded-full transition"
+            disabled={isLoading}
+            className={`flex items-center justify-center gap-1 mt-5 ${
+              isLoading
+                ? "bg-indigo-300 cursor-not-allowed"
+                : "bg-indigo-500 hover:bg-indigo-600"
+            } text-white py-2.5 w-full rounded-full transition`}
           >
-            Submit Form
+            {isLoading ? "Sending..." : "Submit Form"}
           </button>
         </div>
       </form>
