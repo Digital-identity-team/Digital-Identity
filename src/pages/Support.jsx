@@ -11,7 +11,7 @@ const Support = () => {
     form.current.time.value = new Date().toLocaleString();
 
     emailjs
-      .sendForm("service_9fal7pp", "template_steviji", form.current, "u1fV1KYpEg12-mqJc")
+      .sendForm("service_aztije9", "template_b9m45un", form.current, "gAdau_gAMszN0t71t")
       .then(
         () => {
           alert("Message Sent Successfully!");
