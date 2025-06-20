@@ -54,7 +54,7 @@ const Footer = () => {
       </div>
       <hr className="border-gray-300 mt-10" />
       <div className="flex flex-col md:flex-row justify-between items-center pt-5 text-sm">
-        <p>© {new Date().getFullYear()} Digital. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Digital Identity. All rights reserved.</p>
         <ul className="flex gap-4 mt-3 md:mt-0">
             {/* <Link className="hover:text-gray-900 transition mb-2 md:mb-0" to="/">Home</Link> */}
           <li>
