@@ -37,8 +37,8 @@ const Support = () => {
         <h1 className="text-4xl font-bold py-4 text-center">Let’s Get In Touch.</h1>
         <p className="text-gray-500 pb-10 text-center">
           Or reach us at{" "}
-          <a href="mailto:mybusinesssbackend@gmail.com" className="text-indigo-600 hover:underline">
-            getdigitalidentity@gmail.com
+          <a href="mailto:team.digitalidentity@gmail.com" className="text-indigo-600 hover:underline">
+            getdigitalidentit@gmail.com
           </a>
         </p>
 
