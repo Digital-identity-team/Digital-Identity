@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 const HomePage = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}       // Starting animation
-      animate={{ opacity: 1, y: 0 }}        // On mount
-      exit={{ opacity: 0, y: -20 }}         // On unmount
-      transition={{ duration: 0.4 }}        // Smooth transition
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
     >
-      <main className="px-6 md:px-16 lg:px-24 xl:px-32 flex flex-col-reverse md:flex-row items-center justify-between gap-12 py-16 grow">
+      <main className="px-6 md:px-16 lg:px-24 xl:px-32 flex flex-col-reverse md:flex-row items-center justify-between md:gap-12 gap-6 py-16 grow">
 
         {/* Left Content */}
         <div className="w-full md:w-1/2 text-center md:text-left">
@@ -46,10 +46,11 @@ const HomePage = () => {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.94 }}
               transition={{ type: "spring", stiffness: 300 }}
+              className="border border-gray-200 rounded-md"
             >
               <Link
                 to="/Support"
-                className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition"
+                className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded-md block hover:bg-blue-700 transition"
               >
                 Get Started
               </Link>
@@ -59,10 +60,11 @@ const HomePage = () => {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.94 }}
               transition={{ type: "spring", stiffness: 300 }}
+              className="border border-gray-200 rounded-md"
             >
               <Link
                 to="/Catalogue"
-                className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition"
+                className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded-md block hover:bg-blue-700 transition"
               >
                 View Catalogue
               </Link>
@@ -72,6 +74,7 @@ const HomePage = () => {
               whileHover={{ scale: 1.05, x: 4 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "tween", duration: 0.3 }}
+              className="pt-1"
             >
               <Link to="/features" className="text-sm flex items-center gap-1 hover:underline">
                 <span>Learn more</span>
@@ -97,7 +100,7 @@ const HomePage = () => {
             muted
             playsInline
             preload="auto"
-            className="w-full max-w-md rounded-md"
+            className="w-full rounded-lg md:rounded-xl max-w-full"
           />
         </div>
       </main>
