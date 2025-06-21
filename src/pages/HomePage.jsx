@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import video from '../assets/Online_Resume.mp4';
+import { motion } from 'framer-motion';
 
 const HomePage = () => {
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}       // starting
+      animate={{ opacity: 1, y: 0 }}        // after mount
+      exit={{ opacity: 0, y: -20 }}         // on unmount
+      transition={{ duration: 0.4 }}        // smooth transition
+    >
     <main className="px-6 md:px-16 lg:px-24 xl:px-32 flex flex-col-reverse md:flex-row items-center justify-between gap-12 py-16 grow">
       {/* Left Content */}
       <div className="w-full md:w-1/2 text-center md:text-left">
@@ -30,31 +38,57 @@ const HomePage = () => {
           <br />Simplify challenges, maximize results.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center md:justify-start">
-           <Link to="/Support" className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition">
-                Get Started
+          <motion.div
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <Link
+              to="/Support"
+              className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition"
+            >
+              Get Started
             </Link>
-            <Link to="/Catalogue" className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition">
-                View Catalogue
-            </Link> 
-          <Link to="/features" className="text-sm flex items-center gap-1 hover:underline">
-            <span>Learn more</span>
-            <svg width="15" height="11" fill="none" viewBox="0 0 15 11">
-            <path
-                d="M1 5.5h13.09M8.948 1l5.143 4.5L8.948 10"
-                stroke="#1F2937"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <Link
+              to="/Catalogue"
+              className="bg-blue-600 text-white text-sm px-5 py-2.5 rounded shadow hover:bg-blue-700 transition"
+            >
+              View Catalogue
+            </Link>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05, x: 4 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "tween", duration: 0.3 }}
+          >
+            <Link to="/features" className="text-sm flex items-center gap-1 hover:underline">
+              <span>Learn more</span>
+              <svg width="15" height="11" fill="none" viewBox="0 0 15 11">
+                <path
+                  d="M1 5.5h13.09M8.948 1l5.143 4.5L8.948 10"
+                  stroke="#1F2937"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
-            </svg>
-</Link>
+              </svg>
+            </Link>
+          </motion.div>
         </div>
       </div>
 
       {/* Right Video */}
       <div className="w-full md:w-1/2 flex justify-center">
         <video
-          src="https://res.cloudinary.com/deqvf8cwi/video/upload/v1750491434/Online_resume_n21clp.mp4"
+          src=""
           autoPlay
           muted
           playsInline
@@ -63,6 +97,7 @@ const HomePage = () => {
         />
       </div>
     </main>
+  </motion.div>
   );
 };
 
