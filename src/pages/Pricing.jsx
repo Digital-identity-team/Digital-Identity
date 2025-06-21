@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 👈 important
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'; // 👈 Import motion
 
 const Pricing = () => {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-6 py-12 px-4">
-      {/* Basic Plan */}
-      <PricingCard
+    <motion.div
+      className="flex flex-wrap items-center justify-center gap-6 py-12 px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <AnimatedCard
         title="Basic"
         subtitle="Basic portfolio for individual"
         badge="Popular"
@@ -20,13 +25,13 @@ const Pricing = () => {
         buttonText="Schedule a call"
       />
 
-      {/* Enterprise Plan */}
-      <PricingCard
+      <AnimatedCard
         title="Your Custom Website"
         subtitle={[
-          "Custom solutions for organizations",
-          "/startups &,",
-          "individuals"]}
+          'Custom solutions for organizations',
+          '/startups &,',
+          'individuals',
+        ]}
         badge="Custom"
         price="Contact Us"
         features={[
@@ -40,8 +45,7 @@ const Pricing = () => {
         buttonText="Schedule a call"
       />
 
-      {/* Pro Plan */}
-      <PricingCard
+      <AnimatedCard
         title="Pro"
         subtitle="Advanced features for professionals"
         badge="Recommended"
@@ -55,19 +59,29 @@ const Pricing = () => {
         ]}
         buttonText="Schedule a call"
       />
-    </div>
+    </motion.div>
   );
 };
 
-const PricingCard = ({ title, subtitle, badge, price, features, buttonText }) => {
+const AnimatedCard = ({ title, subtitle, badge, price, features, buttonText }) => {
   return (
-    <div className="p-6 bg-white rounded-lg border-2 border-gray-800 w-80 shadow-lg">
+    <motion.div
+      className="p-6 bg-white rounded-lg border-2 border-gray-800 w-80 shadow-lg"
+      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      viewport={{ once: true }}
+    >
       <div className="flex justify-between items-start">
         <div>
           <h3 className="text-xl font-bold">{title}</h3>
-          <p className="text-gray-500 mt-1">{subtitle}</p>
+          <p className="text-gray-500 mt-1">
+            {Array.isArray(subtitle) ? subtitle.join(' ') : subtitle}
+          </p>
         </div>
-        <span className="text-sm font-medium px-2.5 py-0.5 rounded bg-gray-100">{badge}</span>
+        <span className="text-sm font-medium px-2.5 py-0.5 rounded bg-gray-100">
+          {badge}
+        </span>
       </div>
 
       <div className="mt-6 flex items-baseline">
@@ -102,7 +116,7 @@ const PricingCard = ({ title, subtitle, badge, price, features, buttonText }) =>
       >
         {buttonText}
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

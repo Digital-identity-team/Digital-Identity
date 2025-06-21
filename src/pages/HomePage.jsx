@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import video from '../assets/Online_Resume.mp4';
 import { motion } from 'framer-motion';
 
 const HomePage = () => {
@@ -88,7 +87,7 @@ const HomePage = () => {
       {/* Right Video */}
       <div className="w-full md:w-1/2 flex justify-center">
         <video
-          src=""
+          src="https://res.cloudinary.com/deqvf8cwi/video/upload/v1750491434/Online_resume_n21clp.mp4"
           autoPlay
           muted
           playsInline
