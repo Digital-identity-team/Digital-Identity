@@ -36,7 +36,7 @@ const HomePage = () => {
           Unlock potential with tailored strategies designed for success.
           <br />Simplify challenges, maximize results.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center md:justify-start">
+        <div className="flex flex-col sm:flex-row gap-y-3 gap-x-6 justify-center md:justify-start">
           <motion.div
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.94 }}
