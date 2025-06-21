@@ -51,12 +51,15 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Right Image */}
+      {/* Right Video */}
       <div className="w-full md:w-1/2 flex justify-center">
-        <img
-          src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/rightSideImage.svg"
-          alt="Hero Visual"
-          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
+        <video
+          src="https://res.cloudinary.com/deqvf8cwi/video/upload/v1750491434/Online_resume_n21clp.mp4"
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-auto max-w-md rounded-none shadow-none border-none outline-none"
         />
       </div>
     </main>
