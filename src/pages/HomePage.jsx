@@ -95,7 +95,7 @@ const HomePage = () => {
         {/* Right Video */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <video
-            src="https://res.cloudinary.com/deqvf8cwi/video/upload/v1750491434/Online_resume_n21clp.mp4"
+            src="https://res.cloudinary.com/deqvf8cwi/image/upload/v1751543461/webanime_fmvsnj.png"
             autoPlay
             muted
             playsInline
