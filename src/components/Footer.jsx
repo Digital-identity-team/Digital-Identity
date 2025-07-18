@@ -90,7 +90,7 @@ const Footer = () => {
               onClick={() => {
                 const pass = prompt("Enter Beta Password:");
                 if (pass === "digital@beta") {
-                  window.location.href = "myspace-kappa.vercel.app";
+                  window.location.href = "https://myspace-kappa.vercel.app/";
                 } else {
                   alert("❌ Incorrect password!");
                 }
