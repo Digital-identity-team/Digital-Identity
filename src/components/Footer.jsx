@@ -86,7 +86,19 @@ const Footer = () => {
             >
               Beta user
             </button>
-          <li><a href="coming.soon" className="hover:text-gray-800 transition">Devlopers</a></li>
+          <button
+              onClick={() => {
+                const pass = prompt("Enter Beta Password:");
+                if (pass === "digital@beta") {
+                  window.location.href = "myspace-kappa.vercel.app";
+                } else {
+                  alert("❌ Incorrect password!");
+                }
+              }}
+              className="hover:text-blue-600 hover:underline transition"
+            >
+              Devloper
+            </button>
           <li><a href="coming.soon" className="hover:text-gray-800 transition">Affiliate</a></li>
         </ul>
       </motion.div>
